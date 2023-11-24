@@ -19,6 +19,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
+try:
+    from secret_attributes import SECRET_KEY as sk
+except ImportError:
+    SECRET_KEY = ''
+SECRET_KEY = sk
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 

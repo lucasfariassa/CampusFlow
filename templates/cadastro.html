@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusFlow</title>
+    <title>Cadastro</title>
 </head>
 <body>
-    <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+    <form action="{% url 'cadastro' %}" method="POST">{% csrf_token %}
         <input type="text" placeholder="Digite sua matrícula" name="matricula">
         <br>
         <input type="password" placeholder="Digite sua senha" name="senha">
         <br>
-        <input type="submit" value="entrar">
+        <input type="submit" value="cadastrar">
 </body>
 </html>
