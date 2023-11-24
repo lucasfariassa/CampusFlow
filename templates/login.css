@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Krona_One';
+    src: url("{% static 'fonts/Krona_One/KronaOne-Regular.ttf' %}") format('truetype');
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Krona_One', sans-serif;
+    background-image: url("{% static 'images/global/gradiente.png' %}");
+    color: rgba(5, 19, 91, 1);
+}
+
