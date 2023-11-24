@@ -1,13 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
-from utils.cursos_academicos import OPCOES_CURSOS
 
 class Aluno(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    matricula = models.CharField(max_length=9, primary_key=True) # Matrícula do Aluno que serve de ID para o sistema
-    nome_completo = models.CharField(max_length=100)
-    curso_academico = models.CharField(max_length=3)
-    status_monitor = models.BooleanField(default=False) # Status personalizável apenas pelas Atléticas
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Usuário')
+    matricula = models.CharField(max_length=9, primary_key=True, verbose_name='Matrícula') # Matrícula do Aluno que serve de ID para o sistema
+    nome_completo = models.CharField(max_length=100, verbose_name='Nome Completo')
+    email = models.EmailField(max_length=254, verbose_name='Endereço de Email')
+    curso_academico = models.CharField(max_length=3, verbose_name='Curso Acadêmico')
+    status_monitor = models.BooleanField(default=False, verbose_name='Status de Monitor') # Status personalizável apenas pelas Atléticas
 
     class Meta:
         verbose_name = 'Aluno(a)'

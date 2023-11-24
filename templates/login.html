@@ -4,13 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CampusFlow</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
 </head>
 <body>
-    <form action="{% url 'login' %}" method="POST">{% csrf_token %}
-        <input type="text" placeholder="Digite sua matrícula" name="matricula">
-        <br>
-        <input type="password" placeholder="Digite sua senha" name="senha">
-        <br>
-        <input type="submit" value="entrar">
+    <div class="login_conteudo_central">
+        <div class="login_logo">
+            <a href="/alunos/home/">
+                <img id="login_logo_vertical" src="{% static 'images/global/logo_vertical.png' %}" alt="Logotipo do CampusFlow que redireciona para a página inicial do CampusFlow"/>
+            </a>
+        </div>
+        <div>
+            <form class="login_inputs" action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <input id="input_matricula" type="text" placeholder="digite sua matrícula" name="matricula">
+                <br>
+                <input id="input_senha" type="password" placeholder="digite sua senha" name="senha">
+                <br>
+                <input id="input_submit" type="submit" value="entrar">
+        </div>
+        <div class="login_atleticas">
+            <a id="login_atleticas_button" href="/atleticas/login/">
+                <img id="login_atleticas_button_image" src="{% static 'images/global/area_das_atleticas.png' %}" alt="Botão que redireciona para a página de login das Atléticas"/>
+            </a> 
+        </div>
+        <div class="cadastre_se">
+            <p id="cadastre_se_pergunta">não tem uma conta?</p>
+            <a href="/alunos/cadastro/">
+                <button id="cadastre_se_button" type="button">cadastre-se</button>
+            </a>
+        </div>
+    </div>
+    <footer class="login_footer">
+        <div class="login_copyright">© 2023 CampusFlow. Todos os direitos reservados. Associação Universitária e Cultural da Bahia - AUCBA 1932</div>
+    </footer>
 </body>
 </html>

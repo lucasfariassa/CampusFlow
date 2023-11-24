@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusFlow</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login_atleticas.css' %}">
+</head>
+<body>
+    <div class="login_conteudo_central">
+        <div class="login_logo">
+            <a href="/atleticas/home/">
+                <img id="login_logo_vertical" src="{% static 'images/global/logo_atleticas.png' %}" alt="Logotipo do CampusFlow que redireciona para a página das Atléticas"/>
+            </a>
+        </div>
+        <div>
+            <form class="login_inputs" action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <input id="input_user" type="text" placeholder="digite o usuário da atlética" name="user_atletica">
+                <br>
+                <input id="input_senha" type="password" placeholder="digite a senha da atlética" name="senha_atletica">
+                <br>
+                <input id="input_submit" type="submit" value="entrar">
+        </div>
+        <div class="login_alunos">
+            <a id="login_alunos_button" href="/alunos/login/">
+                <img id="login_alunos_button_image" src="{% static 'images/global/login_de_aluno.png' %}" alt="Botão que redireciona para a página de login dos Alunos"/>
+            </a> 
+        </div>
+    </div>
+    <footer class="login_footer">
+        <div class="login_copyright">© 2023 CampusFlow. Todos os direitos reservados. Associação Universitária e Cultural da Bahia - AUCBA 1932</div>
+    </footer>
+</body>
+</html>
