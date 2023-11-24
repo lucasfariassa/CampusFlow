@@ -6,10 +6,30 @@
     <title>Cadastro</title>
 </head>
 <body>
-    <form action="{% url 'cadastro' %}" method="POST">{% csrf_token %}
+    <h1>CADASTRO</h1>
+    <form action="{% url 'cadastro' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="Digite seu nome completo" name="nome_completo">
+        <br>
+        <br>
+        <label for="curso_academico">Selecione seu curso acadêmico:</label>
+        <br>
+        <select name="curso_academico" id="curso_academico">
+            {% for codigo, nome in OPCOES_CURSOS %}
+                <option value="{{ codigo }}">{{ nome }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
         <input type="text" placeholder="Digite sua matrícula" name="matricula">
         <br>
+        <br>
+        <input type="text" placeholder="Digite seu e-mail" name="email">
+        <br>
+        <br>
         <input type="password" placeholder="Digite sua senha" name="senha">
+        <br>
+        <br>
         <br>
         <input type="submit" value="cadastrar">
 </body>
