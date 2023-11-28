@@ -15,7 +15,7 @@
             </a>
         </div>
         <div>
-            <form class="login_inputs" action="{% url 'login' %}" method="POST">
+            <form class="login_inputs" action="/atleticas/login/" method="POST">
                 {% csrf_token %}
                 <input id="input_user" type="text" placeholder="digite o usuário da atlética" name="user_atletica">
                 <br>

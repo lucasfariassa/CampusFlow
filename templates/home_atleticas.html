@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CampusFlow</title>
+    {% load static %}
 </head>
 <body>
     <h1>HOME ATLÉTICAS</h1>
+    <div class="visualizar_cursos">
+        <a id="visualizar_cursos_button" href="/atleticas/cursos/">
+            <img id="visualizar_cursos_button_image" src="{% static 'images/global/visualizar_cursos.png' %}"
+                alt="Botão que redireciona para a página de visualização de cursos do CampusFlow" />
+        </a>
+    </div>
+    <div class="criar_curso">
+        <a id="criar_curso_button" href="/atleticas/criar-curso/">
+            <img id="criar_curso_button_image" src="{% static 'images/global/criar_curso.png' %}"
+                alt="Botão que redireciona para a página de criação de curso" />
+        </a>
+    </div>
+    <div class="cadastrar_monitor">
+        <a id="cadastar_monitor_button" href="/atleticas/cadastrar-monitor/">
+            <img id="cadastrar_monitor_button_image" src="{% static 'images/global/cadastrar_monitor.png' %}"
+                alt="Botão que redireciona para a página de cadastro de monitor" />
+        </a>
+    </div>
 </body>
 </html>

@@ -1,9 +1,9 @@
-from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_django
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from .models import Aluno
 from utils.cursos_academicos import OPCOES_CURSOS
 
@@ -49,7 +49,11 @@ def cadastro(request):
             login_django(request, user_registered) # Realiza um login automático após o cadastro - Performs an automatic login after registration
             return HttpResponseRedirect(redirect_to='/alunos/home/')
 
-
 @login_required(login_url="/alunos/login/")
 def home(request):
-    return render(request, 'home.html')
+    user = request.user
+    if hasattr(user, 'aluno') and user.aluno.tipo_usuario == Aluno.USER_TIPO:
+        return render(request, 'home.html')
+    else:
+        return HttpResponseForbidden("Você não tem permissão para acessar esta página.")
+    
