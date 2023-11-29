@@ -17,7 +17,7 @@
         <div>
             <form class="login_inputs" action="{% url 'login' %}" method="POST">
                 {% csrf_token %}
-                <input id="input_matricula" type="text" placeholder="digite sua matrícula" name="matricula">
+                <input id="input_matricula" type="text" placeholder="digite sua matrícula" name="matricula" maxlength="9">
                 <br>
                 <input id="input_senha" type="password" placeholder="digite sua senha" name="senha">
                 <br>

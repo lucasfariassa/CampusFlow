@@ -7,7 +7,7 @@ class Curso(models.Model):
     descricao = models.TextField()
     data_lancamento = models.DateField(auto_now_add=True)
     curso_academico_relacionado = models.CharField(max_length=3)
-    thumbnail = models.ImageField(upload_to='static/thumbs_cursos')
+    thumbnail = models.ImageField(upload_to='static/images/thumbs_cursos', default='static/images/global/thumb_curso_default.png')
 
     def __str__(self):
         return self.nome
@@ -31,12 +31,15 @@ class Videoaula(models.Model):
     modulo = models.ForeignKey(Modulo, related_name='videoaulas', on_delete=models.CASCADE)
     titulo_video = models.CharField(max_length=100)
     data_publicacao = models.DateField(auto_now_add=True)
-    titulo_descricao = models.CharField(max_length=50)
     descricao_video = models.TextField(max_length=300)
     url_video = models.URLField()
 
     def __str__(self):
         return self.titulo_video
+    
+    @property
+    def nome_curso(self):
+        return self.modulo.curso.nome
     
     class Meta:
         verbose_name = 'Videoaula'

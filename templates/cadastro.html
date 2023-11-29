@@ -9,7 +9,7 @@
     <h1>CADASTRO</h1>
     <form action="{% url 'cadastro' %}" method="POST">
         {% csrf_token %}
-        <input type="text" placeholder="Digite seu nome completo" name="nome_completo">
+        <input type="text" placeholder="Digite seu nome completo" name="nome_completo" maxlength="100">
         <br>
         <br>
         <label for="curso_academico">Selecione seu curso acadêmico:</label>
@@ -21,10 +21,10 @@
         </select>
         <br>
         <br>
-        <input type="text" placeholder="Digite sua matrícula" name="matricula">
+        <input type="text" placeholder="Digite sua matrícula" name="matricula" maxlength="9">
         <br>
         <br>
-        <input type="text" placeholder="Digite seu e-mail" name="email">
+        <input type="text" placeholder="Digite seu e-mail" name="email" maxlength="254">
         <br>
         <br>
         <input type="password" placeholder="Digite sua senha" name="senha">
