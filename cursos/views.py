@@ -25,5 +25,4 @@ def cursos(request):
         return HttpResponseRedirect(redirect_to='/alunos/home/')
     elif hasattr(user, 'atletica') and user.atletica.tipo_usuario == Atletica.USER_TIPO:
         return HttpResponseRedirect(redirect_to='/atleticas/home/')
-    else:
-        return HttpResponseForbidden("Você não tem permissão para acessar esta página.")
+    

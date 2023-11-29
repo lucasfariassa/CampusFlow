@@ -115,7 +115,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOGIN_REDIRECT_URL = '/'  # Por exemplo, redireciona para a página inicial
+LOGIN_REDIRECT_URL = '/alunos/home'  # Por exemplo, redireciona para a página inicial
+LOGOUT_REDIRECT_URL = '/alunos/home'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
