@@ -9,66 +9,68 @@
     <script src="{% static 'js/home.js' %}"></script>
 </head>
 <body>
-    <h1>HOME</h1>
-    <div>
+    <div class="minha_conta_area">
+        <div class="minha_conta_button"><img src="{% static 'images/global/minha_conta_alunos.png' %}"></div>
         <form class="logout" action="{% url 'logout' %}" method="POST">
             {% csrf_token %}
             <input id="input_logout" type="submit" value="sair"></input>
         </form>
     </div>
-    <div class="meus_cursos">
-        <h3>meus cursos</h3>
-        <div class="lista_horizontal" id="image-carousel">
-            <button id="prev-button"><</button>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-            <!-- Adicione mais imagens conforme necessário -->
-            <button id="next-button">></button>
+    <div class="exibicao_cursos">
+        <div class="meus_cursos">
+            <h3>meus cursos</h3>
+            <div class="lista_horizontal" id="image-carousel">
+                <button id="prev-button"><</button>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
+                <!-- Adicione mais imagens conforme necessário -->
+                <button id="next-button">></button>
+            </div>
         </div>
-    </div>
-    <br>
-    <br>
-    <div class="cursos_da_minha_atletica">
-        <h3>cursos da minha atlética</h3>
-        <div class="lista_horizontal" id="image-carousel">
-            <button id="prev-button"><</button>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-            <!-- Adicione mais imagens conforme necessário -->
-            <button id="next-button">></button>
+        <br>
+        <br>
+        <div class="cursos_da_minha_atletica">
+            <h3>cursos da minha atlética</h3>
+            <div class="lista_horizontal" id="image-carousel">
+                <button id="prev-button"><</button>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
+                <!-- Adicione mais imagens conforme necessário -->
+                <button id="next-button">></button>
+            </div>
         </div>
-    </div>
-    <br>
-    <br>
-    <div class="cursos_em_destaque">
-        <h3>cursos em destaque</h3>
-        <div class="lista_horizontal" id="image-carousel">
-            <button id="prev-button"><</button>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-            <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-            <!-- Adicione mais imagens conforme necessário -->
-            <button id="next-button">></button>
+        <br>
+        <br>
+        <div class="cursos_em_destaque">
+            <h3>cursos em destaque</h3>
+            <div class="lista_horizontal" id="image-carousel">
+                <button id="prev-button"><</button>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
+                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
+                <!-- Adicione mais imagens conforme necessário -->
+                <button id="next-button">></button>
+            </div>
         </div>
     </div>
 </body>

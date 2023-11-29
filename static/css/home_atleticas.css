@@ -1,0 +1,121 @@
+:root {
+    --primary-color: #05135B;
+    --secondary-color: #FFFFFF;
+}
+
+@font-face {
+    font-family: 'Krona_One';
+    src: url('../fonts/Krona_One/KronaOne-Regular.ttf') format('truetype');
+}
+
+html {
+    font-family: 'Krona_One', sans-serif;
+    
+}
+
+body {
+    margin: 0;
+    font-family: 'Krona_One', sans-serif;
+    background-image: url('../../static/images/global/gradiente.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.logo {
+    text-align: center;
+    margin-top: 15px;
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+}
+
+.logo img {
+    max-width: 355px;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+.minha_conta_area {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    margin-right: 15px;
+    margin-top: 45px;
+    z-index: 9999;
+}
+
+.minha_conta_button {
+    position: fixed;
+    margin-right: 15px;
+    margin-top: 15px;
+    right: 0;
+}
+
+#input_logout {
+    font-family: 'Krona_One', sans-serif; 
+    width: 85px;
+    height: 35px;
+    position: fixed;
+    margin-right: 15px;
+    margin-top: 50px;
+    right: 0;
+    font-size: 16px;
+    border-radius: 25px;
+    border-color: transparent;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+.menu_opcoes {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 357px; /* Posiciona o menu a partir do topo da página */
+    width: 100%; /* Garante que ocupe toda a largura da tela */
+    box-sizing: border-box; /* Inclui padding e borda na largura total */ 
+}
+
+/* Reduzindo o tamanho das divs do menu */
+.visualizar_cursos,
+.criar_curso,
+.cadastrar_monitor {
+    margin: 0 25px; /* Espaçamento entre os itens do menu */
+    max-width: 300px; /* Defina o tamanho máximo desejado */
+    text-align: center; /* Centraliza o texto (se houver) dentro das divs */
+}
+
+.visualizar_cursos img,
+.criar_curso img,
+.cadastrar_monitor img {
+    border-radius: 25px;
+    max-width: 100%; /* Garante que a imagem se ajuste ao tamanho máximo definido */
+}
+
+@media screen and (max-width: 768px) {
+    .menu_opcoes {
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        top: 100px; /* Posiciona o menu a partir do topo da página */
+        width: 100%; /* Garante que ocupe toda a largura da tela */
+        box-sizing: border-box; /* Inclui padding e borda na largura total */
+        padding: 70px; 
+    }
+
+        .visualizar_cursos,
+        .criar_curso,
+        .cadastrar_monitor {
+            margin: 10px 0;
+            /* Espaçamento entre os itens do menu */
+            max-width: 225px;
+            /* Defina o tamanho máximo desejado */
+            text-align: center;
+            /* Centraliza o texto (se houver) dentro das divs */
+        }
+}

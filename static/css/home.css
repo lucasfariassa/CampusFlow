@@ -22,21 +22,45 @@ body {
     height: 100vh;
 }
 
-.logout {
-    text-align: center;
+h3 {
+    margin-left: 5px;
+}
+
+.minha_conta_area {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    margin-right: 15px;
+    margin-top: 15px;
+    z-index: 9999;
+}
+
+.minha_conta_button {
+    position: fixed;
+    margin-right: 15px;
+    margin-top: 15px;
+    right: 0;
 }
 
 #input_logout {
     font-family: 'Krona_One', sans-serif; 
-    width: 155px;
+    width: 85px;
     height: 35px;
-    margin: 25px;
+    position: fixed;
+    margin-right: 15px;
+    margin-top: 5px;
+    right: 0;
     font-size: 16px;
     border-radius: 25px;
     border-color: transparent;
     background-color: var(--primary-color);
     color: var(--secondary-color);
     cursor: pointer;
+}
+
+.exibicao_cursos {
+    padding-top: 150px;
 }
 
 .lista_horizontal {
