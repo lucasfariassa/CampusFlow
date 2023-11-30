@@ -15,8 +15,8 @@
         <label for="curso_academico">Selecione seu curso acadêmico:</label>
         <br>
         <select name="curso_academico" id="curso_academico">
-            {% for codigo, nome in OPCOES_CURSOS %}
-                <option value="{{ codigo }}">{{ nome }}</option>
+            {% for codigo, nome_curso in OPCOES_CURSOS %}
+                <option value="{{ codigo }}">{{ nome_curso }}</option>
             {% endfor %}
         </select>
         <br>

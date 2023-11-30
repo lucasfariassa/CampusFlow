@@ -9,6 +9,11 @@
     <script src="{% static 'js/home.js' %}"></script>
 </head>
 <body>
+    <div class="logo">
+        <a href="/alunos/home/">
+            <img id="logo_boas_vindas" src="{% static 'images/global/logo_boas_vindas_alunos.png' %}" alt="Logotipo do CampusFlow que redireciona para a página inicial"/>
+        </a>
+    </div>
     <div class="minha_conta_area">
         <div class="minha_conta_button"><img src="{% static 'images/global/minha_conta_alunos.png' %}"></div>
         <form class="logout" action="{% url 'logout' %}" method="POST">
@@ -16,62 +21,68 @@
             <input id="input_logout" type="submit" value="sair"></input>
         </form>
     </div>
+    <div class="popup" id="course-popup">
+        <h2 id="popup-title"></h2>
+        <p id="popup-description"></p>
+        <button onclick="closePopup()">fechar</button>
+        <a id="btn-aula-detail" href="#">acessar</a>
+    </div>
     <div class="exibicao_cursos">
-        <div class="meus_cursos">
-            <h3>meus cursos</h3>
-            <div class="lista_horizontal" id="image-carousel">
-                <button id="prev-button"><</button>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-                <!-- Adicione mais imagens conforme necessário -->
-                <button id="next-button">></button>
-            </div>
-        </div>
-        <br>
-        <br>
         <div class="cursos_da_minha_atletica">
-            <h3>cursos da minha atlética</h3>
+            <h3>cursos promovidos pelas atléticas</h3>
             <div class="lista_horizontal" id="image-carousel">
                 <button id="prev-button"><</button>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-                <!-- Adicione mais imagens conforme necessário -->
+                {% for curso in cursos %}
+                    <div>
+                        {% if curso.modulos.exists %}
+                            {% with primeiro_modulo=curso.modulos.first %}
+                                {% if primeiro_modulo.videoaulas.exists %}
+                                    <a href="#" onclick="openPopup('{{ curso.nome }}', '{{ curso.descricao }}', '{{ curso.nome }}', '{{ primeiro_modulo.titulo_modulo }}', '{{ primeiro_modulo.videoaulas.first.titulo_video }}'); return false;">
+                                        <img src="{{ curso.thumbnail.url }}" alt="{{ curso.nome }}">
+                                    </a>
+                                {% endif %}
+                            {% endwith %}
+                        {% endif %}
+                    </div>
+                {% endfor %}
                 <button id="next-button">></button>
             </div>
         </div>
-        <br>
-        <br>
         <div class="cursos_em_destaque">
             <h3>cursos em destaque</h3>
             <div class="lista_horizontal" id="image-carousel">
                 <button id="prev-button"><</button>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_1.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_2.jpg' %}"></div>
-                <div><img src="{% static 'images/thumbs_cursos/imagem_teste_3.jpg' %}"></div>
-                <!-- Adicione mais imagens conforme necessário -->
+                {% for curso in cursos %}
+                    <div>
+                        {% if curso.modulos.exists %}
+                            {% with primeiro_modulo=curso.modulos.first %}
+                                {% if primeiro_modulo.videoaulas.exists %}
+                                    <a href="#" onclick="openPopup('{{ curso.nome }}', '{{ curso.descricao }}', '{{ curso.nome }}', '{{ primeiro_modulo.titulo_modulo }}', '{{ primeiro_modulo.videoaulas.first.titulo_video }}'); return false;">
+                                        <img src="{{ curso.thumbnail.url }}" alt="{{ curso.nome }}">
+                                    </a>
+                                {% endif %}
+                            {% endwith %}
+                        {% endif %}
+                    </div>
+                {% endfor %}
                 <button id="next-button">></button>
             </div>
         </div>
-    </div>
+    </div> 
 </body>
+<script>
+    function openPopup(title, description, cursoNome, moduloNome, aulaNome) {
+        document.getElementById('popup-title').textContent = title;
+        document.getElementById('popup-description').textContent = description;
+        document.getElementById('course-popup').style.display = 'block';
+
+        var btnAulaDetail = document.getElementById('btn-aula-detail');
+        if (moduloNome && aulaNome) {
+            btnAulaDetail.setAttribute('href', '/cursos/' + cursoNome + '/' + moduloNome + '/' + aulaNome + '/');
+        }
+    }
+    function closePopup() {
+            document.getElementById('course-popup').style.display = 'none';
+    }
+</script>
 </html>

@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_django
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
+from cursos.models import Curso
 from .models import Aluno
 from utils.cursos_academicos import OPCOES_CURSOS
 
@@ -53,7 +54,10 @@ def cadastro(request):
 def home(request):
     user = request.user
     if hasattr(user, 'aluno') and user.aluno.tipo_usuario == Aluno.USER_TIPO:
-        return render(request, 'home.html')
+        cursos = Curso.objects.all()
+        context = {
+            'cursos': cursos
+        }
+        return render(request, 'home.html', context)
     else:
         return HttpResponseForbidden("Você não tem permissão para acessar esta página.")
-    

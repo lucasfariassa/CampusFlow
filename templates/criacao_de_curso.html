@@ -7,5 +7,31 @@
 </head>
 <body>
     <h1>CRIAÇÃO DE CURSO</h1>
+    <form action="{% url 'criar_curso' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="nome">Nome do Curso:</label><br>
+        <input type="text" id="nome" name="nome" maxlength="100">
+        <br>
+        <br>
+        <label for="descricao">Descrição:</label><br>
+        <textarea id="descricao" name="descricao" rows="4" cols="50"></textarea>
+        <br>
+        <br>
+        <label for="curso_academico_relacionado">Curso Acadêmico Relacionado:</label>
+        <br>
+        <select id="curso_academico_relacionado" name="curso_academico_relacionado">
+            {% for codigo, nome_curso in OPCOES_CURSOS %}
+                <option value="{{ codigo }}">{{ nome_curso }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <label for="thumbnail">Thumbnail do Curso:</label>
+        <br>
+        <input type="file" id="thumbnail" name="thumbnail">
+        <br>
+        <br>
+        <input type="submit" value="Cadastrar">
+    </form>
 </body>
 </html>

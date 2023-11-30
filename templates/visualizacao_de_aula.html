@@ -6,11 +6,50 @@
     <title>Visualização de Aula</title>
 </head>
 <body>
-    <h1>Detalhes da Videoaula</h1>
-    <h2>{{ video_aula.titulo_video }}</h2>
-    <p>Data de Publicação: {{ video_aula.data_publicacao }}</p>
-    <p>Descrição:</p>
-    <p>{{ video_aula.descricao_video }}</p>
-    <!-- Aqui você pode adicionar o reprodutor de vídeo ou o link para a aula, se necessário -->
+    <!-- Seção de Módulos do Curso -->
+    <div class="informacoes_curso">
+        <h2>{{ video_aula.nome_curso }}</h2>
+        <ul>
+            {% for mod in modulos_curso %}
+            <li>
+                {{ mod.titulo_modulo }}
+                <button onclick="mostrarMais('{{ mod.titulo_modulo }}')">Mostrar Mais</button>
+                <!-- Lista de videoaulas inicialmente oculta -->
+                <ul id="listaVideoaulas{{ mod.titulo_modulo }}" style="display: none;">
+                    {% for videoaula in videoaulas %}
+                    {% if videoaula.modulo == mod %}
+                    <li>{{ videoaula.titulo_video }}</li>
+                    <!-- Adicione mais informações da videoaula conforme necessário -->
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="videoaula">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/4FsLnuELY_E?si=ukSva_kxa_r3qYJz"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        <div class="videoaula_info">
+            <h2>{{ video_aula.titulo_video }}</h2>
+            <p>{{ video_aula.data_publicacao }}</p>
+        </div>x
+    </div>
+    <div class="descricao">
+        <p>Descrição</p>
+        <p>{{ video_aula.descricao_video }}</p>
+    </div>
+    <script>
+        function mostrarMais(modulo) {
+            var lista = document.getElementById("listaVideoaulas" + modulo);
+            if (lista.style.display === "none") {
+                lista.style.display = "block";
+            } else {
+                lista.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,109 @@
+:root {
+    --primary-color: #05135B;
+    --secondary-color: #FFFFFF;
+}
+
+@font-face {
+    font-family: 'Krona_One';
+    src: url('../fonts/Krona_One/KronaOne-Regular.ttf') format('truetype');
+}
+
+html {
+    font-family: 'Krona_One', sans-serif;
+    
+}
+
+body {
+    margin: 0;
+    font-family: 'Krona_One', sans-serif;
+    background-image: url('../../static/images/global/gradiente.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+h3 {
+    margin-left: 5px;
+}
+
+.minha_conta_area {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    margin-right: 15px;
+    margin-top: 15px;
+    z-index: 9999;
+}
+
+.minha_conta_button {
+    position: fixed;
+    margin-right: 15px;
+    margin-top: 15px;
+    right: 0;
+}
+
+#input_logout {
+    font-family: 'Krona_One', sans-serif; 
+    width: 85px;
+    height: 35px;
+    position: fixed;
+    margin-right: 15px;
+    margin-top: 5px;
+    right: 0;
+    font-size: 16px;
+    border-radius: 25px;
+    border-color: transparent;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+.exibicao_cursos {
+    padding-top: 150px;
+}
+
+.lista_horizontal {
+    min-width: 80vw;
+    height: 150px;
+    display: flex;
+    overflow-x: hidden;
+    padding: 0;
+    white-space: nowrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+.lista_horizontal div {
+    width: calc((1280px - 4 * 10px) / 5);
+    height: calc(((1280px - 4 * 10px) / 5) * 9 / 16);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lista_horizontal img {
+    width: calc((1280px - 4 * 10px) / 5);
+    height: calc(((1280px - 4 * 10px) / 5) * 9 / 16);
+}
+
+#prev-button {
+    position: absolute;
+    left: 0;
+    margin-left: 5px;
+    justify-self: center;
+}
+
+#next-button {
+    position: absolute;
+    right: 0px;
+    margin-right: 5px;
+    justify-self: center;
+}
+

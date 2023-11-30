@@ -4,8 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CampusFlow</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cadastro_monitor.css' %}">
 </head>
 <body>
     <h1>CADASTRO DE MONITOR</h1>
+    <form action="{% url 'cadastro' %}" method="POST">
+        {% csrf_token %}
+        <label for="curso_da_plataforma_titulo">curso da plataforma</label>
+        <br>
+        <select name="curso_da_plataforma" id="curso_da_plataforma">
+            <option value="">Selecione um curso</option>
+            {% for curso in cursos %}
+                <option value="{{ curso.id }}">{{ curso.nome }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <label for="matricula_titulo">matrícula</label>
+        <br>
+        <input type="text" placeholder="Digite a matrícula do aluno" name="matricula" maxlength="9">
+        <br>
+        <br>
+        <input type="submit" value="cadastrar">
+    </form>
 </body>
 </html>

@@ -1,0 +1,104 @@
+:root {
+    --primary-color: #05135B;
+    --secondary-color: #FFFFFF;
+}
+
+@font-face {
+    font-family: 'Krona_One';
+    src: url('../fonts/Krona_One/KronaOne-Regular.ttf') format('truetype');
+}
+
+html {
+    font-family: 'Krona_One', sans-serif;
+    background-image: url('../../static/images/global/gradiente.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    text-align: center;
+}
+
+#login_logo_vertical {
+    min-width: auto;
+    max-width: 450px;
+}
+
+.login_conteudo_central {
+    margin-top: 100px;
+}
+
+.login_inputs {
+    margin-top: 75px;
+}
+
+#input_matricula, #input_senha {
+    font-family: 'Krona_One', sans-serif;
+    text-align: left;
+    width: 225px;
+    height: 35px;
+    margin: 10px;
+    padding-left: 15px;
+    font-size: 16px;
+    border-radius: 25px;
+    border-color: transparent;
+    background-color: var(--secondary-color);
+}
+
+#input_submit {
+    font-family: 'Krona_One', sans-serif;
+    width: 155px;
+    height: 35px;
+    margin: 25px;
+    font-size: 16px;
+    border-radius: 25px;
+    border-color: transparent;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+.login_atleticas {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 55px;
+    margin-left: 15px;
+}
+
+.cadastre_se {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 70px;
+    margin-right: 15px;
+}
+
+#cadastre_se_pergunta {
+    padding: 0;
+    margin: 0px 0px 5px;
+    color: var(--secondary-color);
+}
+
+#cadastre_se_button {
+    font-family: 'Krona_One', sans-serif;
+    width: 225px;
+    height: 35px;
+    font-size: 16px;
+    border-radius: 25px;
+    border-color: transparent;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.login_footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.login_copyright {
+    font-size: x-small;
+    opacity: 60%;
+    padding: 5px;
+    color: var(--secondary-color);
+}

@@ -4,8 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CampusFlow</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <script src="{% static 'js/home.js' %}"></script>
 </head>
 <body>
-    <h1>VISUALIZAÇÃO DE CURSOS</h1>
+    <div class="logo">
+        <a href="/atleticas/home/">
+            <img id="logo_boas_vindas" src="{% static 'images/global/logo_boas_vindas_atleticas.png' %}" alt="Logotipo do CampusFlow que redireciona para a página inicial"/>
+        </a>
+    </div>
+    <div class="minha_conta_area">
+        <div class="minha_conta_button"><img src="{% static 'images/global/minha_conta_alunos.png' %}"></div>
+        <form class="logout" action="{% url 'logout' %}" method="POST">
+            {% csrf_token %}
+            <input id="input_logout" type="submit" value="sair"></input>
+        </form>
+    </div>
+    <div class="popup" id="course-popup">
+        <h2 id="popup-title"></h2>
+        <p id="popup-description"></p>
+        <button onclick="closePopup()">Fechar</button>
+    </div>
+    <div class="exibicao_cursos">
+        <div class="cursos_da_minha_atletica">
+            <h3>cursos da atlética</h3>
+            <div class="lista_horizontal" id="image-carousel">
+                <button id="prev-button"><</button>
+                {% for curso in cursos %}
+                    <div>
+                        <a href="#" onclick="openPopup('{{ curso.nome }}', '{{ curso.descricao }}'); return false;">
+                            <img src="{{ curso.thumbnail.url }}" alt="{{ curso.nome }}">
+                        </a>
+                    </div>
+                {% endfor %}
+                <button id="next-button">></button>
+            </div>
+        </div>
+        <div class="cursos_em_destaque">
+            <h3>cursos em destaque</h3>
+            <div class="lista_horizontal" id="image-carousel">
+                <button id="prev-button"><</button>
+                {% for curso in cursos %}
+                    <div>
+                        <a href="#" onclick="openPopup('{{ curso.nome }}', '{{ curso.descricao }}'); return false;">
+                            <img src="{{ curso.thumbnail.url }}" alt="{{ curso.nome }}">
+                        </a>
+                    </div>
+                {% endfor %}
+                <button id="next-button">></button>
+            </div>
+        </div>
+    </div> 
 </body>
+<script>
+    function openPopup(title, description) {
+        document.getElementById('popup-title').textContent = title;
+        document.getElementById('popup-description').textContent = description;
+        document.getElementById('course-popup').style.display = 'block';
+    }
+
+    function closePopup() {
+        document.getElementById('course-popup').style.display = 'none';
+    }
+</script>
 </html>

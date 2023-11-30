@@ -10,7 +10,7 @@
 
 html {
     font-family: 'Krona_One', sans-serif;
-    
+
 }
 
 body {
@@ -23,7 +23,23 @@ body {
 }
 
 h3 {
-    margin-left: 5px;
+    margin-left: 10px;
+    color: var(--primary-color);
+}
+
+.logo {
+    text-align: center;
+    margin-top: 15px;
+    position: fixed;
+    width: 100%;
+    z-index: 9998;
+}
+
+.logo img {
+    max-width: 355px;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
 }
 
 .minha_conta_area {
@@ -32,7 +48,7 @@ h3 {
     align-items: center;
     position: fixed;
     margin-right: 15px;
-    margin-top: 15px;
+    margin-top: 45px;
     z-index: 9999;
 }
 
@@ -43,13 +59,17 @@ h3 {
     right: 0;
 }
 
+.exibicao_cursos {
+    padding-top: 150px;
+}
+
 #input_logout {
     font-family: 'Krona_One', sans-serif; 
     width: 85px;
     height: 35px;
     position: fixed;
     margin-right: 15px;
-    margin-top: 5px;
+    margin-top: 50px;
     right: 0;
     font-size: 16px;
     border-radius: 25px;
@@ -59,10 +79,6 @@ h3 {
     cursor: pointer;
 }
 
-.exibicao_cursos {
-    padding-top: 150px;
-}
-
 .lista_horizontal {
     min-width: 80vw;
     height: 150px;
@@ -70,7 +86,7 @@ h3 {
     overflow-x: hidden;
     padding: 0;
     white-space: nowrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     box-sizing: border-box;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -86,24 +102,91 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 15px;
 }
 
 .lista_horizontal img {
     width: calc((1280px - 4 * 10px) / 5);
     height: calc(((1280px - 4 * 10px) / 5) * 9 / 16);
+    border-radius: 25px;
 }
 
 #prev-button {
+    font-family: 'Krona_One', sans-serif; 
+    font-size: large;
     position: absolute;
-    left: 0;
+    left: 0px;
     margin-left: 5px;
     justify-self: center;
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 4px var(--primary-color);
+    cursor: pointer;
 }
 
 #next-button {
+    font-family: 'Krona_One', sans-serif;
+    font-size: large;
     position: absolute;
     right: 0px;
     margin-right: 5px;
     justify-self: center;
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 4px var(--primary-color);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        text-align: left;
+        margin-top: 15px;
+        left: 0;
+        position: fixed;
+        width: 100%;
+    }
+    
+    .logo img {
+        max-width: 355px;
+        filter: none !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+.popup {
+    font-family: 'Krona_One', sans-serif;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: var(--secondary-color);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    width: 80%; /* Ajuste a largura conforme necessário */
+    max-width: 400px; /* Defina a largura máxima do popup */
+    text-align: center;
+}
+
+/* Estilos do botão Fechar */
+.popup button {
+    font-family: 'Krona_One', sans-serif;
+    margin-top: 10px; /* Adicione um espaço entre o conteúdo e o botão Fechar */
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#popup-title, #popup-description {
+    color: #05135B;
 }
 

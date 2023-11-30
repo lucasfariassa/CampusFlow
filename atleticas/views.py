@@ -3,7 +3,10 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_django
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden, HttpResponse, HttpResponseRedirect
+from cursos.models import Curso
+from cursos.forms import CursoForm
 from .models import Atletica
+from utils.cursos_academicos import OPCOES_CURSOS
 
 @login_required(login_url="/atleticas/login/")
 def home_atleticas(request):
@@ -32,7 +35,9 @@ def login_atleticas(request):
 def cadastrar_monitor(request):
     user = request.user
     if hasattr(user, 'atletica') and user.atletica.tipo_usuario == Atletica.USER_TIPO:
-        return render(request, 'cadastro_de_monitor.html')
+        cursos = Curso.objects.all()
+        context = {'cursos': cursos}
+        return render(request, 'cadastro_de_monitor.html', context)
     else:
         return HttpResponseForbidden("Você não tem permissão para acessar esta página.")
 
@@ -48,6 +53,21 @@ def visualizar_cursos(request):
 def criar_curso(request):
     user = request.user
     if hasattr(user, 'atletica') and user.atletica.tipo_usuario == Atletica.USER_TIPO:
-        return render(request, 'criacao_de_curso.html')
+        if request.method == "POST":
+            form = CursoForm(request.POST, request.FILES)
+            if form.is_valid():
+                novo_curso = form.save(commit=False)
+                if 'thumbnail' in request.FILES:
+                    novo_curso.thumbnail = request.FILES['thumbnail']
+                novo_curso.save()
+        else:
+            form = CursoForm()
+
+        context = {
+            'form': form,
+            'OPCOES_CURSOS': OPCOES_CURSOS,
+        }
+        return render(request, 'criacao_de_curso.html', context)
     else:
         return HttpResponseForbidden("Você não tem permissão para acessar esta página.")
+    
